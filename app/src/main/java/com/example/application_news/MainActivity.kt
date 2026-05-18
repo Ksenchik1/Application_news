@@ -68,11 +68,11 @@ fun NewsApp(viewModel: MainViewModel = viewModel()) {
                 },
                 actions = {
                     IconButton(onClick = { viewModel.retry() }) {
-                        Text("🔄", fontSize = 20.sp)  // Или используйте другую иконку
+                        Text("🔄", fontSize = 20.sp)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer  // ✅ ИСПРАВЛЕНО
+                    containerColor = MaterialTheme.colorScheme.primaryContainer  
                 )
             )
         }
