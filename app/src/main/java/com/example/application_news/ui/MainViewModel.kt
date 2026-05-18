@@ -1,4 +1,3 @@
-// ui/MainViewModel.kt
 package com.example.application_news.ui
 
 import androidx.compose.runtime.State
@@ -35,7 +34,6 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             _uiState.value = NewsUiState.Loading
 
-            // Имитация задержки для UX
             delay(500)
 
             try {
@@ -47,12 +45,11 @@ class MainViewModel : ViewModel() {
                 }
 
                 val response = NetworkModule.api.getTopHeadlines(
-                    country = "us", // Можно изменить на "ru" для российских новостей
+                    country = "us",
                     apiKey = apiKey
                 )
 
                 if (response.status == "ok") {
-                    // Фильтруем новости без заголовка и картинки для лучшего UX
                     val validArticles = response.articles.filter {
                         it.title.isNotBlank() && it.urlToImage != null
                     }
